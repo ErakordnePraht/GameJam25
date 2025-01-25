@@ -19,7 +19,8 @@ animations = [{
 radius = 32.0
 height = 80.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(-8, -8)
 collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("1_6w54g")
@@ -27,18 +28,18 @@ bubble_scene = ExtResource("2_6suqc")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_6alv8")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
-rotation = 1.5708
+position = Vector2(8, 8)
 shape = SubResource("CapsuleShape2D_w6pfu")
 
 [node name="ShootingCooldown" type="Timer" parent="."]
 
 [node name="BubbleStartMarker" type="Marker2D" parent="."]
-position = Vector2(0, 56)
+position = Vector2(48, 8)
 
 [connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

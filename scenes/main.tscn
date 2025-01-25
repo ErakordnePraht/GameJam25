@@ -19,7 +19,6 @@ polygon = PackedVector2Array(696, 176, 688, 192, 696, 240, 728, 240, 800, 232, 8
 
 [node name="Player" parent="." instance=ExtResource("2_jy8k1")]
 position = Vector2(152, 320)
-rotation = -1.64934
 motion_mode = 1
 
 [node name="Mob" parent="." instance=ExtResource("3_u61vv")]

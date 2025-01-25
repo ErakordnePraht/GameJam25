@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var bubble_scene: PackedScene
@@ -8,10 +9,18 @@ extends CharacterBody2D
 @export var acceleration = 0
 # TODO: times per second?
 @export var shooting_speed = 1
+
+@export var health = 3
+
 var is_shooting_cooldown = false
 var screen_size
 
 signal hit
+
+func on_hit() -> void:
+	health -= 1
+	if health < 1:
+		queue_free()
 
 func check_collision_between(from: Vector2, to: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
@@ -31,7 +40,7 @@ func can_shoot() -> bool:
 func get_enemies() -> Array[Node]:
 	return get_tree().get_nodes_in_group("Enemy")
 
-func get_nearest_enemy(enemies: Array[Node]):
+func get_nearest_enemy(enemies: Array[Node]) -> Node:
 	var nearest_enemy = null
 	var shortest_distance = INF
 	
@@ -48,9 +57,11 @@ func shoot_nearest_enemy():
 		return
 
 	# Loo bubble node-id, mis liiguvad otse vaenlase poole
-	var nearest_enemy = get_nearest_enemy(get_enemies())
+	var nearest_enemy: Node = get_nearest_enemy(get_enemies())
 	if nearest_enemy == null:
 		return
+	
+	look_at(nearest_enemy.global_position)
 	
 	var bubble = bubble_scene.instantiate()
 	bubble.position = $BubbleStartMarker.global_position

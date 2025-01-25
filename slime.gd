@@ -12,10 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	#if body is Player:
-		#body.on_hit()
-	if body is Mob:
+	if body is Player:
 		body.on_hit()
-	
 	queue_free()
-	pass # Replace with function body.

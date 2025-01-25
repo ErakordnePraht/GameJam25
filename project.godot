@@ -22,6 +22,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Enemy=""
+PlayerProjectile=""
+Player=""
 
 [input]
 
