@@ -66,17 +66,14 @@ func shoot_nearest_enemy():
 	
 	look_at(nearest_enemy.global_position)
 	
-	var bubble = bubble_scene.instantiate()
-	bubble.position = $BubbleStartMarker.global_position
-	var direction = (nearest_enemy.global_position - bubble.global_position).normalized()
-	var force = direction * bubble_speed
-	bubble.apply_central_force(force)
+	var bubble: Bubble = Bubble.new_bubble($BubbleStartMarker.global_position)
+	add_sibling(bubble)
+	bubble.move_towards(nearest_enemy.global_position)
 	
 	# Kui player tulistas
 	is_shooting_cooldown = true
 	$ShootingCooldown.start()
 	
-	add_sibling(bubble)
 	pass
 
 func get_input():

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgyuoe0u64pb"]
+[gd_scene load_steps=4 format=3 uid="uid://cgyuoe0u64pb"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_gqadk"]
-[ext_resource type="PackedScene" uid="uid://dul00yjxc0e8p" path="res://slime.tscn" id="2_2ghfk"]
 [ext_resource type="Texture2D" uid="uid://ch4ghhmy5ceyf" path="res://assets/enemyplaceholder.jpg" id="2_fnh7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdjbx"]
@@ -14,7 +13,6 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_gqadk")
-slime_scene = ExtResource("2_2ghfk")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

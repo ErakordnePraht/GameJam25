@@ -1,9 +1,8 @@
 class_name Mob
 extends RigidBody2D
 
-@export var slime_scene: PackedScene
 @export var health = 3
-@export var slime_speed = 15
+@export var slime_damage = 1
 
 func on_hit() -> void:
 	health -= 1
@@ -17,13 +16,12 @@ func shoot_player() -> void:
 		return
 	look_at(player.global_position)
 	
-	var slime = slime_scene.instantiate()
-	slime.position = $SlimeStartMarker.global_position
-	var direction = (player.global_position - slime.global_position).normalized()
-	var force = direction * slime_speed;
-	slime.apply_central_force(force)
-	
+	# Create slime, start movement
+	var slime: Slime = Slime.new_slime($SlimeStartMarker.global_position, slime_damage)
 	add_sibling(slime)
+	slime.target_player()
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
