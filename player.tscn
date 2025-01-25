@@ -1,18 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://el82tnnwldvs"]
+[gd_scene load_steps=9 format=3 uid="uid://el82tnnwldvs"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_6w54g"]
 [ext_resource type="PackedScene" uid="uid://g2mqyx5gavhl" path="res://bubble.tscn" id="2_6suqc"]
-[ext_resource type="Texture2D" uid="uid://bl40npangxwhs" path="res://assets/player/boboplaceholder.png" id="2_76tl6"]
+[ext_resource type="Texture2D" uid="uid://ca258sbj3t36h" path="res://assets/player/bobo-walk-1.png" id="3_e6ta8"]
+[ext_resource type="Texture2D" uid="uid://ltg1e6m4vmtx" path="res://assets/player/bobo-walk-2.png" id="4_ry4ks"]
+[ext_resource type="Texture2D" uid="uid://bvwb3pfm5l1mj" path="res://assets/player/bobo-walk-3.png" id="5_gnpr2"]
+[ext_resource type="Texture2D" uid="uid://c6suy7kj1mmec" path="res://assets/player/bobo-walk-4.png" id="6_5j6db"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6alv8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_76tl6")
+"texture": ExtResource("3_e6ta8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ry4ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gnpr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5j6db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gnpr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ry4ks")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6pfu"]
@@ -28,18 +46,20 @@ bubble_scene = ExtResource("2_6suqc")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 0)
 rotation = -1.5708
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_6alv8")
 animation = &"walk"
+frame = 1
+frame_progress = 0.909532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
 shape = SubResource("CapsuleShape2D_w6pfu")
 
 [node name="ShootingCooldown" type="Timer" parent="."]
 
 [node name="BubbleStartMarker" type="Marker2D" parent="."]
-position = Vector2(48, 8)
+position = Vector2(32, 0)
 
 [connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

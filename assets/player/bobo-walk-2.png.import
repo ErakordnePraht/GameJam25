@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b68dixa7t8lto"
-path="res://.godot/imported/temptbubble.png-f08839056638403580ea2579b1745a1a.ctex"
+uid="uid://ltg1e6m4vmtx"
+path="res://.godot/imported/bobo-walk-2.png-852938c0d2ecd85034606cea933a3e54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/temptbubble.png"
-dest_files=["res://.godot/imported/temptbubble.png-f08839056638403580ea2579b1745a1a.ctex"]
+source_file="res://assets/player/bobo-walk-2.png"
+dest_files=["res://.godot/imported/bobo-walk-2.png-852938c0d2ecd85034606cea933a3e54.ctex"]
 
 [params]
 

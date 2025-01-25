@@ -8,6 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_pressed('restart'):
+		get_tree().reload_current_scene()
 	pass
 
 
@@ -16,5 +18,5 @@ func _on_player_hit() -> void:
 
 
 func _on_player_game_over() -> void:
-	pass
+	get_tree().reload_current_scene()
 	#get_tree().paused = true

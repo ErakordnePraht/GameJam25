@@ -22,6 +22,7 @@ func on_hit() -> void:
 	hit.emit()
 	health -= 1
 	if health < 1:
+		game_over.emit()
 		queue_free()
 
 func check_collision_between(from: Vector2, to: Vector2) -> bool:
@@ -94,8 +95,10 @@ func _physics_process(delta: float) -> void:
 	var direction = get_input()
 	if direction.length() > 0:
 		velocity = direction.normalized() * speed
+		$AnimatedSprite2D.play()
 	else:
 		velocity = Vector2.ZERO
+		$AnimatedSprite2D.stop()
 		shoot_nearest_enemy()
 	move_and_slide()
 

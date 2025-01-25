@@ -33,7 +33,6 @@ position = Vector2(600, 536)
 [node name="Blocks" parent="Level1" instance=ExtResource("4_iikw1")]
 position = Vector2(296, 192)
 rotation = 0.598648
-scale = Vector2(1, 1)
 
 [node name="Walls" type="StaticBody2D" parent="Level1"]
 
