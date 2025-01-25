@@ -19,7 +19,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_7ar2g")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1/Level1Map"]
+[node name="Bgm" type="AudioStreamPlayer" parent="Level1/Level1Map"]
 stream = ExtResource("3_alxes")
 volume_db = -6.558
 autoplay = true
@@ -45,7 +45,7 @@ motion_mode = 1
 
 [node name="BoboDamagePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3y3bd")
-volume_db = 3.962
+volume_db = 9.584
 
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]

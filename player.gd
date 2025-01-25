@@ -95,10 +95,11 @@ func _physics_process(delta: float) -> void:
 	var direction = get_input()
 	if direction.length() > 0:
 		velocity = direction.normalized() * speed
-		$AnimatedSprite2D.play()
+		rotation = direction.angle()
+		$AnimatedSprite2D.play("walk")
 	else:
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("shoot")
 		shoot_nearest_enemy()
 	move_and_slide()
 
