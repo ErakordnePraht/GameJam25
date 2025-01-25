@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dul00yjxc0e8p"]
+[gd_scene load_steps=5 format=3 uid="uid://dul00yjxc0e8p"]
 
 [ext_resource type="Script" path="res://slime.gd" id="1_3tyai"]
 [ext_resource type="Texture2D" uid="uid://dl2cqu2gt1sab" path="res://assets/slimeplaceholder.png" id="2_36b64"]
+[ext_resource type="AudioStream" uid="uid://cq6qb1deje5ca" path="res://assets/sfx/slime_pop.wav" id="3_fcokw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6hh4"]
 radius = 32.0
@@ -23,4 +24,8 @@ texture = ExtResource("2_36b64")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_c6hh4")
 
+[node name="SlimePop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fcokw")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="SlimePop" to="." method="_on_slime_pop_finished"]

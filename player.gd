@@ -16,8 +16,10 @@ var is_shooting_cooldown = false
 var screen_size
 
 signal hit
+signal game_over
 
 func on_hit() -> void:
+	hit.emit()
 	health -= 1
 	if health < 1:
 		queue_free()

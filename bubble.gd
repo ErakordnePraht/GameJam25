@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+signal bubble_pop
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,10 +13,15 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	bubble_pop.emit()
 	#if body is Player:
 		#body.on_hit()
 	if body is Mob:
 		body.on_hit()
 	
+	$BubblePop.play()
+	hide()
+
+
+func _on_bubble_pop_finished() -> void:
 	queue_free()
-	pass # Replace with function body.

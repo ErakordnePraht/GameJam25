@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmdbwbdi2vliw"]
+[gd_scene load_steps=8 format=3 uid="uid://cmdbwbdi2vliw"]
 
 [ext_resource type="Texture2D" uid="uid://cu7oqs2qpwuh8" path="res://assets/levels/lvl1-bg.png" id="1_7ar2g"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_x2fyk"]
 [ext_resource type="PackedScene" uid="uid://el82tnnwldvs" path="res://player.tscn" id="2_jy8k1"]
+[ext_resource type="AudioStream" uid="uid://jnmp6fljth6" path="res://assets/bgm/level1_music.wav" id="3_alxes"]
 [ext_resource type="PackedScene" uid="uid://cgyuoe0u64pb" path="res://mob.tscn" id="3_u61vv"]
 [ext_resource type="PackedScene" uid="uid://yqm8blndf0i3" path="res://assets/terrain/blocks.tscn" id="4_iikw1"]
+[ext_resource type="AudioStream" uid="uid://4vugu1e6u1fo" path="res://assets/sfx/bobo_takes_damage.wav" id="6_3y3bd"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_x2fyk")
 
 [node name="Level1" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_7ar2g")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1"]
+stream = ExtResource("3_alxes")
+volume_db = -6.558
+autoplay = true
 
 [node name="Player" parent="." instance=ExtResource("2_jy8k1")]
 position = Vector2(152, 320)
@@ -31,3 +40,10 @@ polygon = PackedVector2Array(1072, 72, 72, 72, 80, 576, 0, 648, 0, 0, 1152, 0, 1
 [node name="Blocks" parent="." instance=ExtResource("4_iikw1")]
 position = Vector2(296, 192)
 rotation = 0.598648
+
+[node name="BoboDamagePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3y3bd")
+volume_db = 3.962
+
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]

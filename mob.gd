@@ -13,6 +13,8 @@ func on_hit() -> void:
 func shoot_player() -> void:
 	var player: Player = get_tree().get_first_node_in_group("Player")
 	
+	if !player:
+		return
 	look_at(player.global_position)
 	
 	var slime = slime_scene.instantiate()

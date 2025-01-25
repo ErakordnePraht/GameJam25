@@ -14,4 +14,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		body.on_hit()
+	$SlimePop.play()
+	hide()
+
+
+func _on_slime_pop_finished() -> void:
 	queue_free()
