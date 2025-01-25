@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://yqm8blndf0i3"]
+
+[ext_resource type="Texture2D" uid="uid://b7xyv8r2ngfc6" path="res://assets/terrain/obstacle-blocks.png" id="1_3rv1p"]
+
+[node name="Blocks" type="StaticBody2D"]
+
+[node name="Obstacle-blocks" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3rv1p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-128, 24, -144, -24, -136, -40, -48, -64, -32, -80, 8, -112, 112, -80, 96, -32, 88, -8, 136, 32, 128, 48, 72, 112, 24, 80, 24, 64, 64, 16, 56, -8, -32, -32, -40, 8)
