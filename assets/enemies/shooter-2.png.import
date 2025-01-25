@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch4ghhmy5ceyf"
-path="res://.godot/imported/enemyplaceholder.jpg-57355ad9b9f1f70f7528d1495202656f.ctex"
+uid="uid://u7ejk6lvhag5"
+path="res://.godot/imported/shooter-2.png-1fee78e5f7f01e4c662f34f872d45a01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemyplaceholder.jpg"
-dest_files=["res://.godot/imported/enemyplaceholder.jpg-57355ad9b9f1f70f7528d1495202656f.ctex"]
+source_file="res://assets/enemies/shooter-2.png"
+dest_files=["res://.godot/imported/shooter-2.png-1fee78e5f7f01e4c662f34f872d45a01.ctex"]
 
 [params]
 

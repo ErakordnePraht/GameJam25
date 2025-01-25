@@ -15,13 +15,12 @@ func shoot_player() -> void:
 	if !player:
 		return
 	look_at(player.global_position)
+	$EnemyAnimation.play("shooting")
 	
 	# Create slime, start movement
 	var slime: Slime = Slime.new_slime($SlimeStartMarker.global_position, slime_damage)
 	add_sibling(slime)
 	slime.target_player()
-	
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
