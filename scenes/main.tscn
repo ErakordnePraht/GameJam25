@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmdbwbdi2vliw"]
+
+[ext_resource type="Texture2D" uid="uid://dy5xhmidx5ct4" path="res://assets/backgrounds/lvl1placeholder-bg.png" id="1_ekfdh"]
+[ext_resource type="PackedScene" uid="uid://el82tnnwldvs" path="res://player.tscn" id="2_jy8k1"]
+[ext_resource type="PackedScene" uid="uid://cgyuoe0u64pb" path="res://mob.tscn" id="3_u61vv"]
+
+[node name="Main" type="Node"]
+
+[node name="Level1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ekfdh")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(696, 176, 688, 192, 696, 240, 728, 240, 800, 232, 816, 192, 792, 152)
+
+[node name="Player" parent="." instance=ExtResource("2_jy8k1")]
+position = Vector2(152, 320)
+rotation = -1.64934
+motion_mode = 1
+
+[node name="Mob" parent="." instance=ExtResource("3_u61vv")]
+position = Vector2(600, 536)
+
+[node name="Mob2" parent="." instance=ExtResource("3_u61vv")]
+position = Vector2(840, 272)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://el82tnnwldvs"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_6w54g"]
+[ext_resource type="PackedScene" uid="uid://g2mqyx5gavhl" path="res://bubble.tscn" id="2_6suqc"]
+[ext_resource type="Texture2D" uid="uid://bl40npangxwhs" path="res://assets/player/boboplaceholder.png" id="2_76tl6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6alv8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_76tl6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6pfu"]
+radius = 32.0
+height = 80.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+floor_constant_speed = true
+script = ExtResource("1_6w54g")
+bubble_scene = ExtResource("2_6suqc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_6alv8")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w6pfu")
+
+[node name="ShootingCooldown" type="Timer" parent="."]
+
+[node name="BubbleStartMarker" type="Marker2D" parent="."]
+position = Vector2(0, 56)
+
+[connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

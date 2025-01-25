@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgyuoe0u64pb"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_gqadk"]
+[ext_resource type="Texture2D" uid="uid://ch4ghhmy5ceyf" path="res://assets/enemyplaceholder.jpg" id="2_fnh7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdjbx"]
+size = Vector2(32, 32)
+
+[node name="Mob" type="RigidBody2D" groups=["Enemy"]]
+collision_layer = 4
+gravity_scale = 0.0
+script = ExtResource("1_gqadk")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_wdjbx")
+
+[node name="Enemyplaceholder" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_fnh7a")
