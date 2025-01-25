@@ -20,6 +20,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_gnpr2")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_e6ta8")
 }, {
 "duration": 1.0,
@@ -58,7 +66,7 @@ position = Vector2(4.76837e-07, 0)
 rotation = -1.5708
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_6alv8")
-animation = &"walk"
+animation = &"stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 0)

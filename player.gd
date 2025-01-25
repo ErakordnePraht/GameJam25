@@ -62,7 +62,9 @@ func shoot_nearest_enemy():
 	# Loo bubble node-id, mis liiguvad otse vaenlase poole
 	var nearest_enemy: Node = get_nearest_enemy(get_enemies())
 	if nearest_enemy == null:
+		$AnimatedSprite2D.play("stand")
 		return
+	$AnimatedSprite2D.play("shoot")
 	
 	look_at(nearest_enemy.global_position)
 	
