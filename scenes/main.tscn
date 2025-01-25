@@ -11,35 +11,38 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_x2fyk")
 
-[node name="Level1" type="Sprite2D" parent="."]
+[node name="Level1" type="Node" parent="."]
+
+[node name="Level1Map" type="Sprite2D" parent="Level1"]
 position = Vector2(576, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_7ar2g")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Level1/Level1Map"]
 stream = ExtResource("3_alxes")
 volume_db = -6.558
 autoplay = true
 
+[node name="Mob2" parent="Level1" instance=ExtResource("3_u61vv")]
+position = Vector2(840, 272)
+
+[node name="Mob" parent="Level1" instance=ExtResource("3_u61vv")]
+position = Vector2(600, 536)
+
+[node name="Blocks" parent="Level1" instance=ExtResource("4_iikw1")]
+position = Vector2(296, 192)
+rotation = 0.598648
+scale = Vector2(1, 1)
+
+[node name="Walls" type="StaticBody2D" parent="Level1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Walls"]
+polygon = PackedVector2Array(1072, 72, 72, 72, 80, 576, 0, 648, 0, 0, 1152, 0, 1152, 648, 8, 648, 80, 576, 1072, 584)
+
 [node name="Player" parent="." instance=ExtResource("2_jy8k1")]
 position = Vector2(152, 320)
 motion_mode = 1
-
-[node name="Mob" parent="." instance=ExtResource("3_u61vv")]
-position = Vector2(600, 536)
-
-[node name="Mob2" parent="." instance=ExtResource("3_u61vv")]
-position = Vector2(840, 272)
-
-[node name="Walls" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(1072, 72, 72, 72, 80, 576, 0, 648, 0, 0, 1152, 0, 1152, 648, 8, 648, 80, 576, 1072, 584)
-
-[node name="Blocks" parent="." instance=ExtResource("4_iikw1")]
-position = Vector2(296, 192)
-rotation = 0.598648
 
 [node name="BoboDamagePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3y3bd")
