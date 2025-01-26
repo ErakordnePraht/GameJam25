@@ -22,6 +22,20 @@ animations = [{
 "texture": ExtResource("4_tllwv")
 }],
 "loop": true,
+"name": &"damaged",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oiaie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4t3p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tllwv")
+}],
+"loop": true,
 "name": &"shooting",
 "speed": 5.0
 }, {
@@ -52,8 +66,7 @@ shape = SubResource("CapsuleShape2D_rdy0v")
 rotation = -1.5708
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_5sygd")
-animation = &"shooting"
-frame_progress = 0.853261
+animation = &"damaged"
 
 [node name="ShootingCooldown" type="Timer" parent="."]
 autostart = true

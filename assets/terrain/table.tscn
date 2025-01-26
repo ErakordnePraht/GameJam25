@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://stcel80hbxj1"]
+
+[ext_resource type="Texture2D" uid="uid://wj8ueofk7gu1" path="res://assets/terrain/obstacle-table.png" id="1_s2st0"]
+
+[node name="Table" type="StaticBody2D"]
+
+[node name="Obstacle-table" type="Sprite2D" parent="."]
+texture = ExtResource("1_s2st0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -136, -144, -112, -200, -40, -192, 48, -144, 112, -96, 136, -48, 144, 16, 128, 72, 80, 88, 24, 80, -40, 112, -24, 168, -72, 192, -208, 120, -240, 104, -224, 96, -168, 56, -128, 24, -128)

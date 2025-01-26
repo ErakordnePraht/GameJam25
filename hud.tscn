@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjfcabg3yoiv"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_sfri8"]
+[ext_resource type="Texture2D" uid="uid://xngnubof7qo0" path="res://assets/hp-heart.png" id="2_atwqi"]
+
+[node name="Hud" type="Node"]
+script = ExtResource("1_sfri8")
+
+[node name="HeartContainer" type="GridContainer" parent="."]
+offset_right = 512.0
+offset_bottom = 88.0
+columns = 7
+
+[node name="Heart" type="TextureRect" parent="HeartContainer" groups=["Heart"]]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_atwqi")
+expand_mode = 2

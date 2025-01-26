@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://dul00yjxc0e8p"]
+[gd_scene load_steps=8 format=3 uid="uid://dul00yjxc0e8p"]
 
 [ext_resource type="Script" path="res://slime.gd" id="1_3tyai"]
-[ext_resource type="Texture2D" uid="uid://dl2cqu2gt1sab" path="res://assets/slimeplaceholder.png" id="2_36b64"]
+[ext_resource type="Texture2D" uid="uid://c8aixica5qltv" path="res://assets/shooter-projectile-1.png" id="2_eshx7"]
 [ext_resource type="AudioStream" uid="uid://cq6qb1deje5ca" path="res://assets/sfx/slime_pop.wav" id="3_fcokw"]
+[ext_resource type="Texture2D" uid="uid://ct5ysjmoq416s" path="res://assets/shooter-projectile-2.png" id="3_og16v"]
+[ext_resource type="Texture2D" uid="uid://i8u4xr35cahy" path="res://assets/shooter-projectile-3.png" id="4_xacdd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsbc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eshx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_og16v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xacdd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6hh4"]
-radius = 32.0
+radius = 160.0
 
 [node name="Slime" type="RigidBody2D"]
 collision_layer = 64
@@ -15,13 +34,17 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_3tyai")
-metadata/_edit_group_ = true
 
-[node name="Slimeplaceholder" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_36b64")
+[node name="SlimeAnimated" type="AnimatedSprite2D" parent="."]
+rotation = -0.71733
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_hsbc8")
+frame = 2
+frame_progress = 0.577933
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_c6hh4")
 
 [node name="SlimePop" type="AudioStreamPlayer" parent="."]

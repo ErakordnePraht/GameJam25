@@ -6,6 +6,7 @@ extends RigidBody2D
 func move_towards(target: Vector2) -> void:
 	var direction = (target - global_position).normalized()
 	var force = direction * speed;
+	look_at(target)
 	
 	apply_central_force(force)
 

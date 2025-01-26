@@ -5,9 +5,13 @@ extends RigidBody2D
 @export var slime_damage = 1
 @export var slime_speed = 15
 
+signal death
+
 func on_hit() -> void:
+	$EnemyAnimation.play("damaged")
 	health -= 1
 	if health < 1:
+		death.emit()
 		queue_free()
 		
 func shoot_player() -> void:

@@ -21,6 +21,7 @@ func target_player() -> void:
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$SlimeAnimated.play()
 	pass
 
 

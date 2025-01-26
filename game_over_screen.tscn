@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdpn4xsiowekm"]
+[gd_scene load_steps=4 format=3 uid="uid://cdpn4xsiowekm"]
 
 [ext_resource type="Script" path="res://game_over_screen.gd" id="1_2cwlj"]
+[ext_resource type="AudioStream" uid="uid://bd4fm64ymyd6o" path="res://assets/sfx/game_over.wav" id="2_bspbe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_62pt7"]
 font_size = 136
@@ -28,5 +29,9 @@ label_settings = SubResource("LabelSettings_62pt7")
 [node name="Restart" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "RESTART"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bspbe")
+autoplay = true
 
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_button_up"]
