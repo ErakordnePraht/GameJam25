@@ -3,6 +3,7 @@ extends RigidBody2D
 
 @export var health = 3
 @export var slime_damage = 1
+@export var slime_speed = 15
 
 func on_hit() -> void:
 	health -= 1
@@ -18,7 +19,7 @@ func shoot_player() -> void:
 	$EnemyAnimation.play("shooting")
 	
 	# Create slime, start movement
-	var slime: Slime = Slime.new_slime($SlimeStartMarker.global_position, slime_damage)
+	var slime: Slime = Slime.new_slime($SlimeStartMarker.global_position, slime_damage, slime_speed)
 	add_sibling(slime)
 	slime.target_player()
 

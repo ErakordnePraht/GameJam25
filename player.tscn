@@ -60,6 +60,7 @@ collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("1_6w54g")
 bubble_scene = ExtResource("2_6suqc")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.76837e-07, 0)
