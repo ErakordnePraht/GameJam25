@@ -1,31 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5nxmt1x716ch"]
+[gd_scene load_steps=5 format=3 uid="uid://b5nxmt1x716ch"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_gra5e"]
+[ext_resource type="Texture2D" uid="uid://bfyfsws0kx6yx" path="res://assets/titlescreen.png" id="2_c210o"]
+[ext_resource type="Texture2D" uid="uid://4qatgo5pcyxx" path="res://assets/play-neutral.png" id="3_auao1"]
+[ext_resource type="Texture2D" uid="uid://bg0fkr6d1igpy" path="res://assets/play-hover.png" id="4_n7jm7"]
 
 [node name="TitleScreen" type="Node"]
 script = ExtResource("1_gra5e")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 80
+[node name="Titlescreen" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_c210o")
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="StartGame" type="TextureButton" parent="."]
+offset_left = 544.0
+offset_top = 32.0
+offset_right = 1092.0
+offset_bottom = 306.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_auao1")
+texture_hover = ExtResource("4_n7jm7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Bobo's Bubbles"
-horizontal_alignment = 1
-
-[node name="StartGame" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Start Game"
-
-[connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/StartGame" to="." method="_on_start_game_button_up"]
+[connection signal="button_up" from="StartGame" to="." method="_on_start_game_button_up"]
